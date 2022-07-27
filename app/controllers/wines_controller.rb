@@ -13,10 +13,12 @@ class WinesController < ApplicationController
   # GET /wines/new
   def new
     @wine = Wine.new
+    @strains = Strain.all
   end
 
   # GET /wines/1/edit
   def edit
+    @strains = Strain.all
   end
 
   # POST /wines or /wines.json
@@ -65,6 +67,6 @@ class WinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wine_params
-      params.require(:wine).permit(:name)
+      params.require(:wine).permit(:name, {strain_ids: []})
     end
 end
