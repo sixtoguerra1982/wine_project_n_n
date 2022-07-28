@@ -3,7 +3,7 @@ class StrainWinesController < ApplicationController
         # listar los de registros de StrainWines
         # wine
         #  strains - porcentaje - link_modificar_%
-        @wines = Wine.all.order(:name)
+        @wines = Wine.all.order(:name).includes(:strain_wines).references(:strains)
     end
 
     def edit
