@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_27_233159) do
+ActiveRecord::Schema.define(version: 2022_07_28_004030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_07_27_233159) do
     t.bigint "wine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "percentage", default: 0
     t.index ["strain_id"], name: "index_strain_wines_on_strain_id"
     t.index ["wine_id"], name: "index_strain_wines_on_wine_id"
   end

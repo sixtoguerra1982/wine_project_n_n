@@ -1,0 +1,17 @@
+<h1>WINES !!!! </h1>
+
+
+<ol>
+    <% @wines.each do |wine| %>
+        <li><%= link_to wine.name, edit_wine_path(wine) %></li>
+        <ul>
+            <% wine.strain_wines.each do |wine_strain|  %>
+               <li>
+                   <%= "#{wine_strain.strain.name} | #{wine_strain.percentage}%" %>
+                   <%= link_to "Edit Percentage", edit_strain_wine_path(wine_strain) %>
+                   <%= link_to 'Destroy', wine_strain, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+</ol>
